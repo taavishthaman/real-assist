@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 const FooterContainer = styled.div`
-  position: fixed;
+  /* position: fixed; */
   bottom: 1.6rem;
 `;
 
 const StyledFooter = styled.div`
   display: flex;
   justify-content: space-between;
-  width: calc(100vw - 3.2rem);
+  width: calc(895px - 3.2rem);
 `;
 
 const ReportText = styled.div`
@@ -44,11 +44,17 @@ const PageNum = styled.span`
 `;
 
 function Footer() {
+  const date = new Date();
+  const longMonth = date.toLocaleString("en-us", { month: "long" });
+  const day = date.toLocaleString("en-us", { day: "2-digit" });
+  const year = date.toLocaleString("en-us", { year: "numeric" });
   return (
     <FooterContainer>
       <StyledBorder />
       <StyledFooter>
-        <ReportText>Report Genereted on September 26, 2023</ReportText>
+        <ReportText>
+          Report Genereted on {longMonth} {day}, {year}
+        </ReportText>
         <StyledText>
           RealAssist Property Report | Page 1 <PageNum>of 25</PageNum>
         </StyledText>

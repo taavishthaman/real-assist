@@ -6,7 +6,7 @@ const StyledGHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  margin: 3rem 0 1rem 0;
+  margin: 1.8rem 0 1rem 0;
 `;
 
 const StyledLogoContainer = styled.div`

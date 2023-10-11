@@ -50,7 +50,7 @@ const StyledGraphCard = styled.div`
   margin: 1.2rem 2.2rem;
   background-color: #fff;
   height: 15.1rem;
-  width: calc(100% - 4.4rem);
+  width: calc(865px - 4.4rem);
   border-radius: 1.23rem;
 `;
 
@@ -67,12 +67,12 @@ function Graph({ crimes }) {
         <StyledGraphCard>
           <StyledGraph>
             <LineChart
-              width={width - 100}
+              width={895 - 100}
               height={151}
               data={crimes}
               margin={{
                 top: 14,
-                right: -20,
+                right: 0,
                 left: -20,
                 bottom: 0,
               }}

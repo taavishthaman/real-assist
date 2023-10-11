@@ -7,11 +7,16 @@ import useCrimes from "../hooks/useCrimes";
 
 import { usePDF } from "react-to-pdf";
 import { useEffect, useState } from "react";
+import Spinner from "../components/Spinner";
 
 const StyledPage = styled.div`
-  height: 100vh;
-  width: 100%;
+  height: 125rem;
+  width: 895px;
+  margin: 0 auto;
   padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 function PdfContent() {
@@ -23,17 +28,22 @@ function PdfContent() {
 
   useEffect(() => {
     if (!isLoading && !downloaded) {
-      setTimeout(() => {
-        toPDF();
-        setDownloaded(true);
-      }, 1500);
+      toPDF();
+      setDownloaded(true);
     }
   }, [isLoading, toPDF, downloaded]);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <StyledPage ref={targetRef}>
-      <Header />
-      <GraphHeader />
-      <Graph crimes={crimes} />
+      <div>
+        <Header />
+        <GraphHeader />
+        <Graph crimes={crimes} />
+      </div>
       <Footer />
     </StyledPage>
   );
